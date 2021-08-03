@@ -1,14 +1,106 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>ODG Simulator</title>
-        <link rel="stylesheet" href="./CSS/simulator.css">
-        <script type="text/javascript" src="./Scripts/simulator.js"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>ODG Simulator</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="scripts/main.js"></script>
+    <!--
+    <script type="text/javascript" >
+        window.onload = onLoadHandler;
+    </script>
+    -->
+</head>
 
-    <body>
+<body>
+<div id="header">
     <h1>ODG Simulator</h1>
-    </body>
+</div>
+<div id="deviceArea" class="flex-container">
+    <div id="buttonsColumn" class="buttonsColumn">
+        <div class="inputWrapper">
+            <input type="button" value="Add" id="addDeviceButton">
+            <select id="addDeviceSelect">
+                <option value="powerSupply">Power Supply</option>
+                <option value="light">Light</option>
+            </select>
+        </div>
+        <div class="inputWrapper">
+            <input type="button" value="Simulate" class="wideButton" id="simulateButton">
+        </div>
+        <div class="inputWrapper">
+            <input type="file" id="loadFileInput" class="wideButton" multiple accept="*/*" hidden/>
+            <input type="button" value="Load" class="wideButton" id="loadButton">
+        </div>
+<!--        <div class="inputWrapper">
+            <input type="button" value="Save" class="wideButton" id="saveButton">
+        </div> -->
+        <div class="inputWrapper">
+            <input type="button" value="Help" class="wideButton" id="helpButton">
+        </div>
+    </div>
+    <div id="devicesColumn">
+        <div id="devicesContainer">
+            <div id="devicesHeader">
+                Devices
+            </div>
+            <div id="devicesTableWrapper">
+                <table style="width:100%" id="devicesTable">
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>URL</th>
+                        <th>Current(A)</th>
+                        <th>On</th>
+                        <th>Suspended</th>
+                    </tr>
+                    <tr style="background-color: LightGreen;">
+                        <td>PowerSupply1</td>
+                        <td>PowerSupply</td>
+                        <td>sim://PowerSupply1</td>
+                        <td>-1.456</td>
+                        <td><input type="checkbox" checked></td>
+                        <td><input type="checkbox" readonly="readonly"></td>
+                    </tr>
+                    <tr style="background-color: yellow;">
+                        <td>Light1</td>
+                        <td>Light</td>
+                        <td>sim://Light1</td>
+                        <td>1.456</td>
+                        <td><input type="checkbox" checked></td>
+                        <td><input type="checkbox" checked readonly="readonly"></td>
+                    </tr>
+                    <tr style="background-color: Gainsboro;">
+                        <td>Light2</td>
+                        <td>Light</td>
+                        <td>sim://Light2</td>
+                        <td>1.456</td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" checked readonly="readonly"></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="busVoltage">
+                Bus voltage: 48.0V
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="commandLine">
+    <div id="commandLineLabel">
+        Command line:
+    </div>
+    <div id="commandLineText">
+        <input type="text" id="commandLineTextInput"/>
+    </div>
+    <div id="commandLineRun">
+        <input type="button" value="Run" id="runButton">
+    </div>
+</div>
+<div id="commandResponse">
+    <!-- Command response.-->
+</div>
+</body>
 </html>
