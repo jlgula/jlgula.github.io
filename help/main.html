@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+    
+     <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="next" href="operation.html"  title="Operation"  />  <link rel="start" href="main.html"  title="Overview"  />  <link rel="toc" href="site-contents.html"  title="Table of Contents"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p>Generated Site</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><span><span class="a_foundation_icon"></span>  Previous</span></li>
+      
+    
+      
+        <li><a href="operation.html"  title="Operation" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="overview" class="a_section" data-magellan-target="overview">Overview<a class="a_hlink" href="#overview"></a></h1>
+<p>The ODG simulator is a tool for exploring the
+operation and management of DC microgrids as
+described in the <a href="https://open-dc-grid.org">Open DC Grid</a>
+project.</p>
+<p><img src="images/GridOverview.png" alt="Grid Overview" /></p>
+<p>It simulates the electrical properties of
+devices attached to a DC bus and includes the message
+flow between devices and a microgrid controller.</p>
+<p>Electrically, the grid is modeled as a series of devices
+connected between a positive pole (Vbus) and a negative pole (Gnd).
+Each device has an internal net list consisting of resistors,
+voltage sources and current sources. When running a simulation,
+the simulator connects each device through a low-value resistor
+to the positive pole. It is the current through this resistor that
+is reported as the device current. In addition, the simulator always
+adds one high value resistor between Vbus and Gnd so that a power source
+always has some kind of load to make a complete circuit.</p>
+<p><img src="images/SimulatorDiagram.png" alt="Grid Electrical Model" /></p>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><span><span class="a_foundation_icon"></span>  Previous</span></li>
+      
+    
+      
+        <li><a href="operation.html"  title="Operation" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li  class="a_thispage" >
+    
+      
+        <a href="main.html">Overview</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="operation.html">Operation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="busManagement.html">Bus Management</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="buttons.html">Buttons</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="commands.html">Commands</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>

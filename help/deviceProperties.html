@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Properties</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+    
+     <link rel="stylesheet" href="theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="toc" href="site-contents.html"  title="Table of Contents"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p>Generated Site</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="device-properties" class="a_section" data-magellan-target="device-properties">Device Properties<a class="a_hlink" href="#device-properties"></a></h1>
+<p>Devices implement a tree-structured database based on Martin Jäger's <a href="https://libre.solar/thingset/">ThingSet</a>
+architecture. These properties can be viewed and manipulated using command line get and put commands.</p>
+<p><img src="images/DevicePropertiesScreenShot.png" alt="Simulator Screen Shot" /></p>
+<p>The format of these commands is:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-xml">get <span class="hljs-tag">&lt;<span class="hljs-name">path</span>&gt;</span>
+</code></pre>
+</div></div>
+<p>and</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-xml">put <span class="hljs-tag">&lt;<span class="hljs-name">path</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>
+</code></pre>
+</div></div>
+<p>The <em>path</em> argument is a conventional forward slash pathname whose root can be either the full URL of the device
+or, for convenience, the device's name can be used in place of its URL.</p>
+<p>The <em>value</em> displayed by <strong>get</strong> or provided to <strong>put</strong> uses <a href="https://www.json.org/json-en.html">JSON</a> notation except
+that embedded spaces are not permitted. On a <strong>put</strong>, the value is type-checked against the schema
+of the device and will fail with a &quot;Bad Request&quot; error if the wrong JSON type is used.</p>
+<p>The ThingSet database is self-describing in that the properties supported by any data object can be listed
+by a <strong>get</strong> where the <em>path</em> ends with a final slash as in:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code>get Light1/simulatedAttributes/
+</code></pre>
+</div></div>
+<p>A path consisting of just the device name or its URL is equivalent to a path of &quot;/&quot; and shows the root
+properties.</p>
+<p>The most important properties of managed devices appear in their root data object. All
+managed devices include the following properties:</p>
+<div class="row"><div class="small-expand columns a_xscroll a_table"><table>
+<thead>
+<tr><th>Property</th><th>Sample Value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>on</td><td>true</td><td>Device is on (normal operation) or off (high resistance bus connection)</td></tr>
+<tr><td>suspended</td><td>false</td><td>Device is detached (high resistance bus connection) due to bus management</td></tr>
+<tr><td>priceLimit</td><td>10.0</td><td>Price (arbitrary but potentially $/kWh) where the device suspends</td></tr>
+</tbody>
+</table></div></div>
+<p>All <em>simulated</em> devices include the following properties at the &quot;simulatedAttributes&quot; path.
+All managed devices are simulated devices.</p>
+<div class="row"><div class="small-expand columns a_xscroll a_table"><table>
+<thead>
+<tr><th>Property</th><th>Sample Value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>simulator</td><td>&quot;sim://Simulator1&quot;</td><td>URL of the simulator</td></tr>
+<tr><td>time</td><td>&quot;1970-01-01T00:00Z&quot;</td><td>Time of the last tick from the simulator</td></tr>
+<tr><td>deviceCurrent</td><td>1.0</td><td>Current (A) through the device</td></tr>
+<tr><td>vBus</td><td>48.0</td><td>Bus voltage observed by all devices</td></tr>
+<tr><td>cicuitElements</td><td>...</td><td>An array of the JSON representation of resistors etc.</td></tr>
+</tbody>
+</table></div></div>
+<p>These attributes illustrate how the simulator works internally. There is a simulator device
+that is not shown in the devices table but it has attributes like any other device
+that are observed by the simulated devices. A simulated device initiates a connection
+to the simulator when its simulator property is assigned the URL of the simulator.
+It then does a <em>post</em> (ThingSet create) to register itself with the simulator
+and observes its own device current at the matching data object in the simulator ThingSet.
+When the simulator runs, it updates the current time (actually a delta from the
+Unix Epoch) that is observed by each devices. Most devices are time-independent but
+the <strong>Battery</strong>, for example, changes its internal voltage as a function of current in or out
+during the time interval between ticks.</p>
+<p>Similarly, the simulator observes the <em>circuitElements</em> field each device and it uses
+these values in its circuit analysis.</p>
+<p>Attempting to change the values manually with <strong>put</strong> will not succeed because they
+will be over-written by notifications from the simulator or by changes from the device itself.</p>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="main.html">Overview</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="operation.html">Operation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="busManagement.html">Bus Management</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="buttons.html">Buttons</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="commands.html">Commands</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>

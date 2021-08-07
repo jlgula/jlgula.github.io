@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>post</title>
+    <link rel="stylesheet" href="../theme/css/foundation.min.css">
+    <link rel="stylesheet" href="../theme/css/app.css">
+    
+     <link rel="stylesheet" href="../theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="toc" href="../site-contents.html"  title="Table of Contents"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p>Generated Site</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="../site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="../theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="../site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="post" class="a_section" data-magellan-target="post">post<a class="a_hlink" href="#post"></a></h1>
+<h2 id="name" class="a_section" data-magellan-target="name">NAME<a class="a_hlink" href="#name"></a></h2>
+<p>post - adds a new entry to a ThingSet array element</p>
+<h2 id="synopsis" class="a_section" data-magellan-target="synopsis">SYNOPSIS<a class="a_hlink" href="#synopsis"></a></h2>
+<p>post <em>path</em> <em>value</em></p>
+<h2 id="description" class="a_section" data-magellan-target="description">DESCRIPTION<a class="a_hlink" href="#description"></a></h2>
+<p>Sends the <strong>Post</strong> HTTP (ThingSet <strong>create</strong>) message to the device as a request to add a new entry to a ThingSet array.
+The value must be a JSON value with no spaces permitted. The path can be a relative URL
+starting with the device name or an absolute URL starting with the scheme (always &quot;sim:&quot; in the web app).</p>
+<p>The command displays the value of the post which is the relative path of the created item. A subsequent
+<a href="get.html"><strong>get</strong></a> of that path (with the device name prepended or attached) will return the value of the post.
+A <a href="get.html"><strong>get</strong></a> of the array element itself will return a JSON array containing the values of the array.</p>
+<p>Note that in the current implementation, an array of primitive values operates like a set such
+that posting the same value twice will only contain one element. This behavior is likely to
+change in the future.</p>
+<p>In this implementation of ThingSet, arrays are always typed so the value must match the
+type of the array. The type can be a primitive like a string, number or boolean, or it can
+be a JSON object.</p>
+<p>The path can be shortened or elided completely using the <a href="attach.html"><strong>attach</strong></a> command.</p>
+<h2 id="examples" class="a_section" data-magellan-target="examples">EXAMPLES<a class="a_hlink" href="#examples"></a></h2>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre><code>&gt;&gt; add ChargeController
+&gt;&gt; get ChargeController1/test
+
+{&quot;i32_readonly&quot;:0,&quot;arrayi32&quot;:[],&quot;arrayfloat&quot;:[]}
+
+&gt;&gt; post ChargeController1/test/arrayi32 7
+
+Created: /test/arrayi32/0
+
+&gt;&gt; get ChargeController1/test/arrayi32/0
+
+7
+
+&gt;&gt; get ChargeController1/test/arrayi32
+
+[7]</code></pre>
+</div></div>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="../site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="../main.html">Overview</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../operation.html">Operation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../busManagement.html">Bus Management</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../buttons.html">Buttons</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../commands.html">Commands</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#post">post</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#name">NAME</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#synopsis">SYNOPSIS</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#description">DESCRIPTION</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#examples">EXAMPLES</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script src="../theme/js/jquery.min.js"></script>
+    <script src="../theme/js/what-input.min.js"></script>
+    <script src="../theme/js/foundation.min.js"></script>
+    
+    <script src="../theme/js/app.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add</title>
+    <link rel="stylesheet" href="../theme/css/foundation.min.css">
+    <link rel="stylesheet" href="../theme/css/app.css">
+    
+     <link rel="stylesheet" href="../theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="../theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="toc" href="../site-contents.html"  title="Table of Contents"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p>Generated Site</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="../site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="../theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="../site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="add" class="a_section" data-magellan-target="add">add<a class="a_hlink" href="#add"></a></h1>
+<h2 id="name" class="a_section" data-magellan-target="name">NAME<a class="a_hlink" href="#name"></a></h2>
+<p>add - adds new devices to the grid</p>
+<h2 id="synopsis" class="a_section" data-magellan-target="synopsis">SYNOPSIS<a class="a_hlink" href="#synopsis"></a></h2>
+<p>add <em>type</em> [<em>name</em>]</p>
+<h2 id="description" class="a_section" data-magellan-target="description">DESCRIPTION<a class="a_hlink" href="#description"></a></h2>
+<p>Adds a new device to the simulated bus. By default, the new device is assigned a name corresponding
+to its type with a number appended to make the name unique on the current bus.
+The device is assigned a URL with the scheme &quot;sim:&quot; and authority corresponding to its name.</p>
+<p>The default name can be overriden with an explicit name which is also used for its URL.</p>
+<p>The <em>type</em> must be one of the supported device types as listed in the <a href="devices.html"><em>devices</em></a> command.
+An unrecognized type will result in a &quot;Not found&quot; error. Note that the types are case sensitive.</p>
+<h2 id="examples" class="a_section" data-magellan-target="examples">EXAMPLES<a class="a_hlink" href="#examples"></a></h2>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code>add Light
+</code></pre>
+</div></div>
+<p>Adds a new Light device to the bus using the name &quot;Light1&quot; assuming there are no other lights on the bus.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code>add LPDGridController gc
+</code></pre>
+</div></div>
+<p>Adds a new LPDGridController to the bus and gives it the name &quot;gc&quot; with URL: <strong>sim://gc</strong></p>
+<h2 id="notes" class="a_section" data-magellan-target="notes">NOTES<a class="a_hlink" href="#notes"></a></h2>
+<p>The browser version of the simulator only supports devices using the scheme &quot;sim:&quot;. The JVM desktop
+version supports regular http devices that listens on a particular port.
+A separate thread is launched to control the device, thus one can do something like:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre><code>add Light:8080</code></pre>
+</div></div>
+<p>which creates a thread listening to port 8080 for regular http messages and one can point
+a browser at it with something like:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre><code>chrome http://localhost:8080.</code></pre>
+</div></div>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="../site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="../main.html">Overview</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../operation.html">Operation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../busManagement.html">Bus Management</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../buttons.html">Buttons</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../commands.html">Commands</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#add">add</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#name">NAME</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#synopsis">SYNOPSIS</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#description">DESCRIPTION</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#examples">EXAMPLES</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#notes">NOTES</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script src="../theme/js/jquery.min.js"></script>
+    <script src="../theme/js/what-input.min.js"></script>
+    <script src="../theme/js/foundation.min.js"></script>
+    
+    <script src="../theme/js/app.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get</title>
+    <link rel="stylesheet" href="../theme/css/foundation.min.css">
+    <link rel="stylesheet" href="../theme/css/app.css">
+    
+     <link rel="stylesheet" href="../theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="../theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="toc" href="../site-contents.html"  title="Table of Contents"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p>Generated Site</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="../site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="../theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="../site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="get" class="a_section" data-magellan-target="get">get<a class="a_hlink" href="#get"></a></h1>
+<h2 id="name" class="a_section" data-magellan-target="name">NAME<a class="a_hlink" href="#name"></a></h2>
+<p>get - displays the value of the ThingSet data element at the <strong>path</strong></p>
+<h2 id="synopsis" class="a_section" data-magellan-target="synopsis">SYNOPSIS<a class="a_hlink" href="#synopsis"></a></h2>
+<p>get <em>path</em></p>
+<h2 id="description" class="a_section" data-magellan-target="description">DESCRIPTION<a class="a_hlink" href="#description"></a></h2>
+<p>Sends the <strong>Get</strong> HTTP/ThingSet message to the device as a request for a ThingSet value.
+The value is represented and displayed in JSON. The path can be a relative URL
+starting with the device name or an absolute URL starting with the scheme (always &quot;sim:&quot; in the web app).</p>
+<p>If the path ends with a &quot;/&quot; or the path is just the device name or URL, the message
+is interpreted as a request to list the property names available at the path and
+can thus be used to explore the tree of values available in ThingSet via the <strong>NameID</strong> command. The result
+is a JSON array of the names as text strings. For arrays, if the path to the array
+ends in slash, the result is an array of the index values of the array. These are
+always strings that look like numbers but are just unique values rather than
+having any relationship to an array index.</p>
+<p>The path can be shortened or elided completely using the <a href="attach.html"><strong>attach</strong></a> command.</p>
+<h2 id="examples" class="a_section" data-magellan-target="examples">EXAMPLES<a class="a_hlink" href="#examples"></a></h2>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">&gt;&gt; get <span class="hljs-type">Light1</span>/on
+
+<span class="hljs-literal">true</span>
+</code></pre>
+</div></div>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre><code>&gt;&gt; get sim://Light1/on
+
+true</code></pre>
+</div></div>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre><code>&gt;&gt; get Light1/simulatedAttributes/
+
+[&quot;simulator&quot;,&quot;time&quot;,&quot;deviceCurrent&quot;,&quot;vBus&quot;,&quot;circuitElements&quot;]</code></pre>
+</div></div>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre><code>&gt;&gt; attach Light1
+
+Attached: sim://Light1
+
+&gt;&gt; get
+
+[&quot;loadResistance&quot;,&quot;on&quot;,&quot;suspended&quot;,&quot;price&quot;,&quot;priceLimit&quot;,&quot;gridController&quot;,&quot;subscription&quot;,&quot;simulatedAttributes&quot;]</code></pre>
+</div></div>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre><code>&gt;&gt;add ChargeController
+AddCommand: device ChargeController1 added at sim://ChargeController1
+
+&gt;&gt;post ChargeController1/test/arrayi32 7
+Created: /test/arrayi32/0
+
+&gt;&gt;get ChargeController1/test/arrayi32/
+[&quot;0&quot;]</code></pre>
+</div></div>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="../site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="../main.html">Overview</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../operation.html">Operation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../busManagement.html">Bus Management</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../buttons.html">Buttons</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../commands.html">Commands</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#get">get</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#name">NAME</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#synopsis">SYNOPSIS</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#description">DESCRIPTION</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#examples">EXAMPLES</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script src="../theme/js/jquery.min.js"></script>
+    <script src="../theme/js/what-input.min.js"></script>
+    <script src="../theme/js/foundation.min.js"></script>
+    
+    <script src="../theme/js/app.js"></script>
+    
+  </body>
+</html>

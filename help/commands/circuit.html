@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>circuit</title>
+    <link rel="stylesheet" href="../theme/css/foundation.min.css">
+    <link rel="stylesheet" href="../theme/css/app.css">
+    
+     <link rel="stylesheet" href="../theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="toc" href="../site-contents.html"  title="Table of Contents"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p>Generated Site</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="../site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="../theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="../site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="circuit" class="a_section" data-magellan-target="circuit">circuit<a class="a_hlink" href="#circuit"></a></h1>
+<h2 id="name" class="a_section" data-magellan-target="name">NAME<a class="a_hlink" href="#name"></a></h2>
+<p>circuit - displays a circuit analysis</p>
+<h2 id="synopsis" class="a_section" data-magellan-target="synopsis">SYNOPSIS<a class="a_hlink" href="#synopsis"></a></h2>
+<p>circuit</p>
+<h2 id="description" class="a_section" data-magellan-target="description">DESCRIPTION<a class="a_hlink" href="#description"></a></h2>
+<p>Displays the full circuit analysis of the current bus showing the voltage at each node and the current
+through each device including all the elements in the circuit elements property of the device.
+The nodes and elements are renamed to ensure uniqueness by assigning
+a prefix derived from the URL of the device.</p>
+<h2 id="examples" class="a_section" data-magellan-target="examples">EXAMPLES<a class="a_hlink" href="#examples"></a></h2>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre><code>    add PowerSupply
+    add Light
+    circuit
+    
+nodeVoltage         PowerSupply1$VoltageNode      48.0000             
+nodeVoltage         PowerSupply1$Vbus             47.9990             
+nodeVoltage         Light1$Vbus                   47.9970             
+nodeVoltage         Vbus                          47.9980             
+nodeVoltage         GND                           0.00000             
+deviceCurrent       PowerSupply1$V1               -0.999985           
+deviceCurrent       Light1$rLoad                  0.999938            
+deviceCurrent       busResistor                   4.79980e-05         
+deviceCurrent       PowerSupply1$R1               -0.999985           
+deviceCurrent       deviceResistor$PowerSupply1   -0.999985           
+deviceCurrent       deviceResistor$Light1         0.999938  </code></pre>
+</div></div>
+<p>This example shows the analysis of a simple bus with just a power supply and a load.</p>
+<h2 id="notes" class="a_section" data-magellan-target="notes">NOTES<a class="a_hlink" href="#notes"></a></h2>
+<p>The simulator will perform an analysis of an arbitrary circuit of resistors, voltage sources
+and current sources using the <a href="load.html">load</a> command and selecting a JSON file
+with its contents in the right format. The following shows such a file:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre><code>{
+    &quot;$schema&quot;:&quot;https://org.opendcgrid/schema/circuit/0.0.1&quot;,
+    &quot;data&quot;:{
+        &quot;elements&quot;:[
+            {&quot;type&quot;:&quot;Resistor&quot;,&quot;designator&quot;:&quot;R1&quot;,&quot;value&quot;:2.0,&quot;pins&quot;:[&quot;Node1&quot;,&quot;GND&quot;]},
+            {&quot;type&quot;:&quot;Resistor&quot;,&quot;designator&quot;:&quot;R2&quot;,&quot;value&quot;:4.0,&quot;pins&quot;:[&quot;Node2&quot;,&quot;Node3&quot;]},
+            {&quot;type&quot;:&quot;Resistor&quot;,&quot;designator&quot;:&quot;R3&quot;,&quot;value&quot;:8.0,&quot;pins&quot;:[&quot;Node2&quot;,&quot;GND&quot;]},
+            {&quot;type&quot;:&quot;VoltageSource&quot;,&quot;designator&quot;:&quot;V1&quot;,&quot;value&quot;:32.0,&quot;pins&quot;:[&quot;Node2&quot;,&quot;Node1&quot;]},
+            {&quot;type&quot;:&quot;VoltageSource&quot;,&quot;designator&quot;:&quot;V2&quot;,&quot;value&quot;:20.0,&quot;pins&quot;:[&quot;Node3&quot;,&quot;GND&quot;]}
+        ]
+    }
+}</code></pre>
+</div></div>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="../site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="../main.html">Overview</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../operation.html">Operation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../busManagement.html">Bus Management</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../buttons.html">Buttons</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="../commands.html">Commands</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#circuit">circuit</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#name">NAME</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#synopsis">SYNOPSIS</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#description">DESCRIPTION</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#examples">EXAMPLES</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#notes">NOTES</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script src="../theme/js/jquery.min.js"></script>
+    <script src="../theme/js/what-input.min.js"></script>
+    <script src="../theme/js/foundation.min.js"></script>
+    
+    <script src="../theme/js/app.js"></script>
+    
+  </body>
+</html>

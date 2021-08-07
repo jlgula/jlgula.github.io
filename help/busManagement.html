@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Management</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+    
+     <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="prev" href="operation.html"  title="Operation"  />  <link rel="next" href="buttons.html"  title="Buttons"  />  <link rel="start" href="main.html"  title="Overview"  />  <link rel="toc" href="site-contents.html"  title="Table of Contents"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p>Generated Site</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="operation.html"  title="Operation" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="buttons.html"  title="Buttons" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="bus-management" class="a_section" data-magellan-target="bus-management">Bus Management<a class="a_hlink" href="#bus-management"></a></h1>
+<p>One of the devices that can be added is an <em>LPDGridController</em>. When this
+device is added to the bus, other managed devices connect to it and begin
+managed operation.</p>
+<p><img src="images/ManagedBusScreenShot.png" alt="Managed Bus Simulation" /></p>
+<p>The LPDGridController and managed devices operate in an (overly) simplified version
+of the Local Power Distribution algorithm described by
+<a href="https://drive.google.com/file/d/0B8B9XW6B7prlczMzOE1QWHFXNjA/view?resourcekey=0-wIe8gBdT4Lx4vLroBuEKxQ">Nordman and Christensen</a>.
+In the algorithm used in this version of the simulator, grid controller device publishes a power price
+that is observed by the other devices. Managed load devices (currently only <strong>Light</strong>) have a price
+threshold such that if the price published by the grid controller <em>exceeds</em> this threshold, they go
+into a suspended state and essentially disconnect from the grid. Managed source devices
+(currently only <strong>Power Supply</strong>) also have a threshold but, in their case, they suspend if
+the published price drops <em>below</em> their threshold price.</p>
+<p>In the current implementation, the grid controller does not directly control the other devices.
+It merely changes its published price to attempt to create its desired grid state. The implementation
+uses a very trivial algorithm. The grid controller observes the bus and tries to keep the bus voltage at a particular
+set point (48V). If the bus voltage goes below the set point, it raises the price in an attempt to reduce load.
+If the bus voltage goes above the set point, it lowers the price in an attempt to reduce supply.</p>
+<p>This behavior can be observed by using a command line to force the power source to a voltage above
+the grid controller's set point with the command line:</p>
+<p><strong>put PowerSupply1/voltage 50</strong></p>
+<p>This causes the grid controller to raise its price. The light observes that the new price is above
+its price limit and goes into a <em>suspended</em> state.</p>
+<p>The various parameters of each device can be changed using the command line and the effects observed
+in the devices table.</p>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="operation.html"  title="Operation" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="buttons.html"  title="Buttons" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="main.html">Overview</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="operation.html">Operation</a>
+      
+    
+    
+  </li>
+  
+  <li  class="a_thispage" >
+    
+      
+        <a href="busManagement.html">Bus Management</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="buttons.html">Buttons</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="commands.html">Commands</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>

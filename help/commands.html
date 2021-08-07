@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commands</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+    
+     <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="prev" href="buttons.html"  title="Buttons"  />  <link rel="start" href="main.html"  title="Overview"  />  <link rel="toc" href="site-contents.html"  title="Table of Contents"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p>Generated Site</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="buttons.html"  title="Buttons" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><span><span class="a_foundation_icon"></span>  Next</span></li>
+      
+    
+      
+        <li><a href="site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="commands" class="a_section" data-magellan-target="commands">Commands<a class="a_hlink" href="#commands"></a></h1>
+<p>The bottom portion of the application contains a field for entering commands via a command line
+and displays the results of excuting the command below. The <strong>Run</strong> button isn't needed;
+the command will excute upon pressing the <em>return</em> key on keyboard but the button can also be used.</p>
+<p><img src="images/commandArea.png" alt="Managed Bus Simulation" /></p>
+<p>The following is a brief overview of the commands. Click the link for more information.
+Some of the commands have more functionality in the desktop JVM version of the application
+that cannot be duplicated in the browser platform.</p>
+<div class="row"><div class="small-expand columns a_xscroll a_table"><table>
+<thead>
+<tr><th>Command</th><th>Arguments         </th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><a href="commands/add.html">add</a></td><td><em>type</em> [<em>name</em>]</td><td>Adds a new device to the grid. The <em>type</em> argument must be a supported type as shown by <strong>devices</strong>.</td></tr>
+<tr><td><a href="commands/attach.html">attach</a></td><td>[<em>name</em>] | [<em>URL</em>]</td><td>Sets the start of the path for commands like get that include a path to shorten those commands.</td></tr>
+<tr><td><a href="commands/circuit.html">circuit</a></td><td></td><td>Displays the complete circuit analysis of nodes and currents.</td></tr>
+<tr><td><a href="commands/delete.html">delete</a></td><td><em>path</em></td><td>Sends an HTTP/Thingset <strong>delete</strong> message to the device to delete an array element at the path which must include its index.</td></tr>
+<tr><td><a href="commands/devices.html">devices</a></td><td></td><td>Displays a list of the types of devices that can be added to the grid.</td></tr>
+<tr><td>exit</td><td></td><td>Currently ignored in the web app.</td></tr>
+<tr><td><a href="commands/get.html">get</a></td><td><em>path</em></td><td>Sends an HTTP/ThingSet <strong>get</strong> message and displays the value of the ThingSet data element at the path as a JSON value.</td></tr>
+<tr><td><a href="commands/help.html">help</a></td><td>[<em>command</em>]</td><td>Displays a list of the commands or more detail on a specific command.</td></tr>
+<tr><td><a href="commands/load.html">load</a></td><td></td><td>Loads a file from the file system.</td></tr>
+<tr><td><a href="commands/load.html">log</a></td><td></td><td>Displays the log of messages exchanged between devices.</td></tr>
+<tr><td><a href="commands/patch.html">patch</a></td><td><em>path</em> <em>value</em></td><td>Sends an HTTP/ThingSet <strong>patch</strong> message. The <em>value</em> must be a JSON object.</td></tr>
+<tr><td><a href="commands/post.html">post</a></td><td><em>path</em> <em>value</em></td><td>Sends an HTTP <strong>post</strong> message (ThingSet <strong>create</strong>). Sets an array value and returns the index of the value.</td></tr>
+<tr><td><a href="commands/put.html">put</a></td><td><em>path</em> <em>value</em></td><td>Sends an HTTP <strong>put</strong> message (not used in ThingSet). Sets a value encoded in JSON.</td></tr>
+<tr><td><a href="commands/remove.html">remove</a></td><td>[<em>name</em>] | [<em>URL</em>]</td><td>Removes a device from the grid.</td></tr>
+<tr><td><a href="commands/schedule.html">schedule</a></td><td><em>delay</em> <em>path</em> <em>value</em></td><td>Schedules a <strong>put</strong> message to be delivered to the path at a time offset from the start of the simulation.</td></tr>
+<tr><td><a href="commands/schema.html">schema</a></td><td><em>type</em></td><td>Displays the full schema of a device type.</td></tr>
+<tr><td><a href="commands/simulate.html">simulate</a></td><td>[<em>count</em> [<em>interval</em>]]</td><td>Runs a simulation of <em>count</em> (default 1) ticks and displays the results. The <em>interval</em> is the delay between ticks in seconds - defaults to 1 second.</td></tr>
+<tr><td><a href="commands/version.html">version</a></td><td>[-V]</td><td>Shows the version of the application.</td></tr>
+</tbody>
+</table></div></div>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="buttons.html"  title="Buttons" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><span><span class="a_foundation_icon"></span>  Next</span></li>
+      
+    
+      
+        <li><a href="site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="main.html">Overview</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="operation.html">Operation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="busManagement.html">Bus Management</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="buttons.html">Buttons</a>
+      
+    
+    
+  </li>
+  
+  <li  class="a_thispage" >
+    
+      
+        <a href="commands.html">Commands</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>

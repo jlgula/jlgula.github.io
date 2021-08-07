@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operation</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+    
+     <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="prev" href="main.html"  title="Overview"  />  <link rel="next" href="busManagement.html"  title="Bus Management"  />  <link rel="start" href="main.html"  title="Overview"  />  <link rel="toc" href="site-contents.html"  title="Table of Contents"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p>Generated Site</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="main.html"  title="Overview" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="busManagement.html"  title="Bus Management" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="operation" class="a_section" data-magellan-target="operation">Operation<a class="a_hlink" href="#operation"></a></h1>
+<p>The simulator is a single page web app with all computation run in the user's browser.
+It is basically a command line app with some buttons for convenience. The simulator
+can always be restarted by just reloading the page which resets everything to a default state.</p>
+<p><img src="images/SimulatorScreenShot.png" alt="Simulator Screen Shot" /></p>
+<p>The table on the top right shows the devices currently defined in the simulator and
+is initially blank until some devices are added.</p>
+<h2 id="basic-simulation" class="a_section" data-magellan-target="basic-simulation">Basic Simulation<a class="a_hlink" href="#basic-simulation"></a></h2>
+<p>To conduct a very basic simulation, click the add button on the top left to add
+a Power Supply and then use the pull down next to it to select a Light, then
+click add again. This will create a very simple grid similar to the one shown
+in the diagram. A one-second simulation is automatically initiated after every
+event so the devices table shows the current state of the grid.</p>
+<h2 id="devices-table" class="a_section" data-magellan-target="devices-table">Devices Table<a class="a_hlink" href="#devices-table"></a></h2>
+<p>The devices table shows the properties of each device including the current
+between the device in the grid. Power from a device such as a power supply is shown
+as a negative current. Power into a load device is shown as a positive current.</p>
+<p>Some devices are <em>managed devices</em> and have an on/off property shown in the <strong>on</strong> column.
+Clicking the text box in this column, if it exists, will change the state of the device
+and change the current flow through the device.
+A device that is off normally imposes a high value resistor between the device and the bus.</p>
+<p>Note that there is always a high value resistor across the bus to create some load
+on power sources. Turning a power source off creates a voltage divider between the
+off resistor of the power source and the bus load resistor so an unexpected bus voltage
+may be observed.</p>
+<p>The on/off state of managed devices is shown in their background color, gray for
+off and green when the device is on. Managed devices may also be in a <em>suspended</em>
+state which is shown in yellow and described in the Bus Management page.</p>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="main.html"  title="Overview" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="busManagement.html"  title="Bus Management" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="site-contents.html"  title="Table of Contents" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="main.html">Overview</a>
+      
+    
+    
+  </li>
+  
+  <li  class="a_thispage" >
+    
+      
+        <a href="operation.html">Operation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="busManagement.html">Bus Management</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="buttons.html">Buttons</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="commands.html">Commands</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#operation">Operation</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#basic-simulation">Basic Simulation</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#devices-table">Devices Table</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>
